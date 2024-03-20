@@ -31,9 +31,18 @@ public partial class CustomerForm : Form
     private void btnAdd_Click(object sender, EventArgs e)
     {
         CustomerService customerService = new CustomerService();
-        customerService.AddCustomer(txtName.Text,txtSurname.Text,txtPhone.Text,txtEmail.Text,txtAddress.Text);
+        customerService.AddCustomer(txtName.Text, txtSurname.Text, txtPhone.Text, txtEmail.Text, txtAddress.Text);
         FillDgv();
-       
+        ClearTextBoxes();
 
+    }
+
+    private void ClearTextBoxes()
+    {
+        txtName.Clear();
+        txtSurname.Clear();
+        txtPhone.Clear();
+        txtEmail.Clear();
+        txtAddress.Clear();
     }
 }
