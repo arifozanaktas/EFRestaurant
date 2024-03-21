@@ -13,9 +13,9 @@ public class Customer : BaseEntity
     [MaxLength(100)]
     public string Surname { get; set; }
     [MaxLength(100)]
-    public string? Email { get; set; }
+    public string Email { get; set; }
     [MaxLength(13)]
     public string Phone { get; set; }
     [MaxLength(1000)]
-    public string? Address { get; set; }
+    public string Address { get; set; }
 }

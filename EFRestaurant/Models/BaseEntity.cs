@@ -8,6 +8,6 @@ namespace EFRestaurant.Models;
 public class BaseEntity
 {
     public int Id { get; set; }
-    public DateTime AddDate { get; set; }
+    public DateTime AddDate { get; set; }= DateTime.Now;
     public bool IsActive { get; set; } = true;
 }
