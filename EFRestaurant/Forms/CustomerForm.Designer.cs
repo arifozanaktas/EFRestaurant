@@ -43,15 +43,17 @@ partial class CustomerForm
         btnAdd = new Button();
         dgvCustomers = new DataGridView();
         groupBox2 = new GroupBox();
+        groupBox3 = new GroupBox();
+        checkBox2 = new CheckBox();
+        checkBox1 = new CheckBox();
         btnEdit = new Button();
         btnDelete = new Button();
-        label8 = new Label();
         label7 = new Label();
-        txtSearchSurname = new TextBox();
-        txtSearchName = new TextBox();
+        txtSearch = new TextBox();
         groupBox1.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dgvCustomers).BeginInit();
         groupBox2.SuspendLayout();
+        groupBox3.SuspendLayout();
         SuspendLayout();
         // 
         // label1
@@ -171,7 +173,7 @@ partial class CustomerForm
         // btnAdd
         // 
         btnAdd.BackColor = SystemColors.ActiveCaption;
-        btnAdd.Location = new Point(67, 708);
+        btnAdd.Location = new Point(67, 673);
         btnAdd.Name = "btnAdd";
         btnAdd.Size = new Size(326, 46);
         btnAdd.TabIndex = 3;
@@ -188,16 +190,16 @@ partial class CustomerForm
         dgvCustomers.RowHeadersWidth = 82;
         dgvCustomers.Size = new Size(1296, 577);
         dgvCustomers.TabIndex = 4;
+        dgvCustomers.CellClick += dgvCustomers_CellClick;
         // 
         // groupBox2
         // 
+        groupBox2.Controls.Add(groupBox3);
         groupBox2.Controls.Add(btnEdit);
         groupBox2.Controls.Add(btnDelete);
         groupBox2.Controls.Add(dgvCustomers);
-        groupBox2.Controls.Add(label8);
         groupBox2.Controls.Add(label7);
-        groupBox2.Controls.Add(txtSearchSurname);
-        groupBox2.Controls.Add(txtSearchName);
+        groupBox2.Controls.Add(txtSearch);
         groupBox2.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 162);
         groupBox2.Location = new Point(496, 138);
         groupBox2.Name = "groupBox2";
@@ -205,6 +207,39 @@ partial class CustomerForm
         groupBox2.TabIndex = 5;
         groupBox2.TabStop = false;
         groupBox2.Text = "Customer List";
+        // 
+        // groupBox3
+        // 
+        groupBox3.Controls.Add(checkBox2);
+        groupBox3.Controls.Add(checkBox1);
+        groupBox3.Location = new Point(579, 639);
+        groupBox3.Name = "groupBox3";
+        groupBox3.Size = new Size(310, 149);
+        groupBox3.TabIndex = 6;
+        groupBox3.TabStop = false;
+        groupBox3.Text = "Order By";
+        // 
+        // checkBox2
+        // 
+        checkBox2.AutoSize = true;
+        checkBox2.Location = new Point(43, 86);
+        checkBox2.Name = "checkBox2";
+        checkBox2.Size = new Size(262, 36);
+        checkBox2.TabIndex = 5;
+        checkBox2.Text = "Order By Surname";
+        checkBox2.UseVisualStyleBackColor = true;
+        checkBox2.CheckedChanged += checkBox2_CheckedChanged;
+        // 
+        // checkBox1
+        // 
+        checkBox1.AutoSize = true;
+        checkBox1.Location = new Point(43, 44);
+        checkBox1.Name = "checkBox1";
+        checkBox1.Size = new Size(228, 36);
+        checkBox1.TabIndex = 5;
+        checkBox1.Text = "Order By Name";
+        checkBox1.UseVisualStyleBackColor = true;
+        checkBox1.CheckedChanged += checkBox1_CheckedChanged;
         // 
         // btnEdit
         // 
@@ -215,6 +250,7 @@ partial class CustomerForm
         btnEdit.TabIndex = 3;
         btnEdit.Text = "Edit Customer";
         btnEdit.UseVisualStyleBackColor = false;
+        btnEdit.Click += btnEdit_Click;
         // 
         // btnDelete
         // 
@@ -225,15 +261,7 @@ partial class CustomerForm
         btnDelete.TabIndex = 3;
         btnDelete.Text = "Delete Customer";
         btnDelete.UseVisualStyleBackColor = false;
-        // 
-        // label8
-        // 
-        label8.AutoSize = true;
-        label8.Location = new Point(24, 715);
-        label8.Name = "label8";
-        label8.Size = new Size(242, 32);
-        label8.TabIndex = 1;
-        label8.Text = "Search By Surname";
+        btnDelete.Click += btnDelete_Click;
         // 
         // label7
         // 
@@ -244,19 +272,13 @@ partial class CustomerForm
         label7.TabIndex = 1;
         label7.Text = "Search By Name";
         // 
-        // txtSearchSurname
+        // txtSearch
         // 
-        txtSearchSurname.Location = new Point(272, 715);
-        txtSearchSurname.Name = "txtSearchSurname";
-        txtSearchSurname.Size = new Size(200, 39);
-        txtSearchSurname.TabIndex = 2;
-        // 
-        // txtSearchName
-        // 
-        txtSearchName.Location = new Point(272, 656);
-        txtSearchName.Name = "txtSearchName";
-        txtSearchName.Size = new Size(200, 39);
-        txtSearchName.TabIndex = 2;
+        txtSearch.Location = new Point(272, 656);
+        txtSearch.Name = "txtSearch";
+        txtSearch.Size = new Size(200, 39);
+        txtSearch.TabIndex = 2;
+        txtSearch.TextChanged += txtSearchName_TextChanged;
         // 
         // CustomerForm
         // 
@@ -274,6 +296,8 @@ partial class CustomerForm
         ((System.ComponentModel.ISupportInitialize)dgvCustomers).EndInit();
         groupBox2.ResumeLayout(false);
         groupBox2.PerformLayout();
+        groupBox3.ResumeLayout(false);
+        groupBox3.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -297,8 +321,9 @@ partial class CustomerForm
     private GroupBox groupBox2;
     private Button btnEdit;
     private Button btnDelete;
-    private Label label8;
     private Label label7;
-    private TextBox txtSearchSurname;
-    private TextBox txtSearchName;
+    private TextBox txtSearch;
+    private CheckBox checkBox2;
+    private CheckBox checkBox1;
+    private GroupBox groupBox3;
 }
